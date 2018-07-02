@@ -3,10 +3,8 @@ const mongoose = require('mongoose');
 const typeDefs = require('./schema/schema');
 const resolvers = require('./schema/resolvers');
 
-// connect to the database
+// connect to the dev database
 mongoose.connect("mongodb://steve:passwd@localhost:27017/recipes");
-
-
 
 // configure graphql server and couple with mongodb
 const server = new GraphQLServer({
