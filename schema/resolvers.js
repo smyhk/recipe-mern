@@ -23,6 +23,14 @@ const resolvers = {
       await chef.save();
       return chef;
     },
+    removeChef: async (parent, args) => {
+      await Chef.findByIdAndRemove(args.id);
+      return true;
+    },
+    updateChef: async (parent, args) => {
+      await Chef.findByIdAndUpdate(args.id, args.options);
+      return true;
+    },
     createRecipe: async (parent, args) => {
       let recipe = new Recipe({
         name: args.name,

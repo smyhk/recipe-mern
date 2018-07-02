@@ -22,6 +22,10 @@ const typeDefs = `
     chef(id: ID!): Chef
   }
 
+  input chefUpdate {
+    username: String
+  }
+
   input recipeUpdate {
     name: String
     ingredients: String
@@ -32,6 +36,10 @@ const typeDefs = `
 
   type Mutation {
     addChef(username: String!): Chef
+
+    updateChef(id: ID!, options: chefUpdate): Boolean
+
+    removeChef(id: ID!): Boolean
 
     createRecipe(
       name: String!
