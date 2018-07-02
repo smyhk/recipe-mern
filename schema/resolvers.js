@@ -1,4 +1,4 @@
-const Recipe = require('../models/Recipe').default;
+const Recipe = require('../models/Recipe');
 const Chef = require('../models/Chef');
 
 const resolvers = {
@@ -16,6 +16,13 @@ const resolvers = {
     }
   },
   Mutation: {
+    addChef: async (parent, args) => {
+      let chef = new Chef({
+        username: args.username
+      });
+      await chef.save();
+      return chef;
+    },
     createRecipe: async (parent, args) => {
       let recipe = new Recipe({
         name: args.name,

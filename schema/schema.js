@@ -11,7 +11,7 @@ const typeDefs = `
 
   type Chef {
     id: ID!
-    username: String
+    username: String!
   }
 
   type Query {
@@ -31,6 +31,8 @@ const typeDefs = `
   }
 
   type Mutation {
+    addChef(username: String!): Chef
+
     createRecipe(
       name: String!
       ingredients: String!
