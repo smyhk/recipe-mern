@@ -2,8 +2,11 @@ const typeDefs = `
   type Recipe {
     id: ID!
     name: String!
-    content: String!
-    published: Boolean!
+    ingredients: String!
+    directions: String!
+    prepTime: Int!
+    cookTime: Int!
+    chefId: ID
   }
 
   type Query {
@@ -13,7 +16,14 @@ const typeDefs = `
   }
 
   type Mutation {
-    createRecipe(name: String!, content: String!, published: Boolean!) : Recipe
+    createRecipe(
+      name: String!
+      ingredients: String!
+      directions: String!
+      prepTime: Int!
+      cookTime: Int!
+      chefId: ID
+    ) : Recipe
   }
 `
 

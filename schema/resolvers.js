@@ -9,8 +9,11 @@ const resolvers = {
     createRecipe: (parent, args) => {
       const recipe = new Recipe({
         name: args.name,
-        content: args.content,
-        published: false
+        ingredients: args.ingredients,
+        directions: args.directions,
+        prepTime: args.prepTime,
+        cookTime: args.cookTime,
+        chefId: args.chefId
       });
       recipe.save();
       return recipe;
