@@ -1,7 +1,0 @@
-type Recipe {
-  id: ID!
-  name: String!
-  chef: String!
-  content: String!
-  published: Boolean!
-}
