@@ -1,0 +1,36 @@
+{
+  "name": "recipe-mern",
+  "version": "0.1.0",
+  "description": "A responsive web app to store and retrieve recipes.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/smyhk/recipe-mern.git"
+  },
+  "keywords": [
+    "recipes",
+    "javascript",
+    "mongodb",
+    "express",
+    "react",
+    "graphql",
+    "node.js"
+  ],
+  "author": "Stevce K.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smyhk/recipe-mern/issues"
+  },
+  "homepage": "https://github.com/smyhk/recipe-mern#readme",
+  "dependencies": {
+    "graphql-yoga": "^1.14.10",
+    "mongoose": "^5.1.7"
+  },
+  "devDependencies": {
+    "eslint": "^5.0.1",
+    "eslint-plugin-react": "^7.10.0"
+  }
+}
