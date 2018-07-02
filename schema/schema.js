@@ -9,10 +9,17 @@ const typeDefs = `
     chefId: ID
   }
 
+  type Chef {
+    id: ID!
+    username: String
+  }
+
   type Query {
     description: String!
     recipes: [Recipe!]
     recipe(id: ID!): Recipe
+    chefs: [Chef!]
+    chef(id: ID!): Chef
   }
 
   input recipeUpdate {

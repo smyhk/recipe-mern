@@ -1,8 +1,14 @@
-const Recipe = require('../models/Recipe');
+const Recipe = require('../models/Recipe').default;
+const Chef = require('../models/Chef');
 
 const resolvers = {
   Query: {
     description: () => `This is the API for a recipe sharing app`,
+    chefs: () => Chef.find(),
+    chef: (parent, args) => {
+      const chef = Chef.findById(args.id);
+      return chef;
+    },
     recipes: () => Recipe.find(),
     recipe: (parent, args) => {
       const recipe = Recipe.findById(args.id);
