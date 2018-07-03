@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Jumbotron from '../components/Jumbotron';
+import RecipeList from '../components/RecipeList';
 
 class Home extends Component {
   render() {
@@ -11,6 +12,7 @@ class Home extends Component {
       <div>
         <Header />
         <Jumbotron title="Welcome Brandi" subtitle="A place for your recipes..."/>
+        <RecipeList />
         <Footer />
       </div>
     );
