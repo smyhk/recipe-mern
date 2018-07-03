@@ -4,6 +4,7 @@ import { gql } from 'apollo-boost';  // parses queries
 const getRecipesQuery = gql`
   {
     recipes {
+      id
       name
       ingredients
       directions
@@ -27,6 +28,7 @@ const getChefsQuery = gql`
 const createRecipeMutation = gql`
   mutation($name: String!, $ingredients: String!, $directions: String!, $prepTime: Int!, $cookTime: Int!) {
     addBook(name: $name, ingredients: $ingredients, directions: $directions, prepTime: $prepTime, cookTime: $cookTime) {
+      id
       name
       ingredients
       directions
@@ -40,6 +42,7 @@ const createRecipeMutation = gql`
 const getRecipeQuery = gql`
   query($id: ID) {
     recipe(id: $id) {
+      id
       name
       ingredients
       description
@@ -48,6 +51,7 @@ const getRecipeQuery = gql`
       chef {
         username
         recipes {
+          id
           name
         }
       }

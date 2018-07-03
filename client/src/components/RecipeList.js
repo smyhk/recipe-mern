@@ -28,7 +28,7 @@ class RecipeList extends Component {
   render() {
     return (
       <div>
-        <h2>Lates Recipes</h2>
+        <h2>Latest Recipes</h2>
         <ul>
           { this.displayRecipes() }
         </ul>

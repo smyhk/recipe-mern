@@ -11,7 +11,7 @@ class Home extends Component {
     return (
       <div>
         <Header />
-        <Jumbotron title="Welcome Brandi" subtitle="A place for your recipes..."/>
+        <Jumbotron title="Welcome Brandi!" subtitle="A place for your recipes..."/>
         <RecipeList />
         <Footer />
       </div>
