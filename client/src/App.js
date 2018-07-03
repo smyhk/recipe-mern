@@ -4,6 +4,8 @@ import { ApolloProvider } from 'react-apollo';
 
 // components
 import Header from './components/Header';
+import Footer from './components/Footer';
+import Jumbotron from './components/Jumbotron';
 
 // apollo client setup
 const client = new ApolloClient({
@@ -15,9 +17,8 @@ class App extends Component {
     return (
       <ApolloProvider client={client}>
         <Header />
-        <div className="container">
-          <h1>{"Brandi's Recipe Directory"}</h1>
-        </div>
+        <Jumbotron title="Welcome Brandi" subtitle="A place for storing your recipes..."/>
+        <Footer />
       </ApolloProvider>
     );
   }
