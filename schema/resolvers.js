@@ -37,8 +37,7 @@ const resolvers = {
         ingredients: args.ingredients,
         directions: args.directions,
         prepTime: args.prepTime,
-        cookTime: args.cookTime,
-        chefId: args.chefId
+        cookTime: args.cookTime
       });
       await recipe.save();
       return recipe;

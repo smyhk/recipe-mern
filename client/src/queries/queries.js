@@ -14,7 +14,7 @@ const getRecipesQuery = gql`
   }
 `;
 
-// list all authors
+// list all chefs
 const getChefsQuery = gql`
   {
     chefs {
@@ -27,7 +27,7 @@ const getChefsQuery = gql`
 // add a recipe to the database
 const createRecipeMutation = gql`
   mutation($name: String!, $ingredients: String!, $directions: String!, $prepTime: Int!, $cookTime: Int!) {
-    addBook(name: $name, ingredients: $ingredients, directions: $directions, prepTime: $prepTime, cookTime: $cookTime) {
+    createRecipe(name: $name, ingredients: $ingredients, directions: $directions, prepTime: $prepTime, cookTime: $cookTime) {
       id
       name
       ingredients
@@ -38,23 +38,16 @@ const createRecipeMutation = gql`
   }
 `;
 
-// retrieve a single book; lists other books by the same author
+// retrieve a single recipe; lists other recipes by the same chef
 const getRecipeQuery = gql`
   query($id: ID) {
     recipe(id: $id) {
       id
       name
       ingredients
-      description
+      directions
       prepTime
       cookTime
-      chef {
-        username
-        recipes {
-          id
-          name
-        }
-      }
     }
   }
 `;

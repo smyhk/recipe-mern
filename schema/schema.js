@@ -1,4 +1,9 @@
 const typeDefs = `
+  type Chef {
+    id: ID!
+    username: String!
+  }
+
   type Recipe {
     id: ID!
     name: String!
@@ -6,20 +11,14 @@ const typeDefs = `
     directions: String!
     prepTime: Int!
     cookTime: Int!
-    chefId: ID
-  }
-
-  type Chef {
-    id: ID!
-    username: String!
   }
 
   type Query {
     description: String!
     recipes: [Recipe!]
-    recipe(id: ID!): Recipe
+    recipe(id: ID): Recipe
     chefs: [Chef!]
-    chef(id: ID!): Chef
+    chef(id: ID): Chef
   }
 
   input chefUpdate {
@@ -47,7 +46,6 @@ const typeDefs = `
       directions: String!
       prepTime: Int!
       cookTime: Int!
-      chefId: ID
     ): Recipe
 
     updateRecipe(id: ID!, options: recipeUpdate): Boolean

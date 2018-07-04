@@ -3,8 +3,7 @@ import { graphql } from 'react-apollo'; // for binding to component
 import { getRecipesQuery } from '../queries/queries';
 
 // components
-// import RecipeDetails from './RecipeDetails';
-// <RecipeDetails recipeId={ this.state.selected }/>
+import RecipeDetails from './RecipeDetails';
 
 class RecipeList extends Component {
   constructor(props) {
@@ -32,7 +31,7 @@ class RecipeList extends Component {
         <ul>
           { this.displayRecipes() }
         </ul>
-        
+        <RecipeDetails recipeId={ this.state.selected }/>
       </div>
     );
   }
