@@ -54,22 +54,22 @@ class AddRecipe extends Component {
 
           <div className="form-group">
             <label>Ingredients:</label>
-            <input className="form-control" type="text" onChange={(e) => this.setState({ ingredients: e.target.value })} />
+            <textarea className="form-control" type="text" onChange={(e) => this.setState({ ingredients: e.target.value })} />
           </div>
 
           <div className="form-group">
             <label>Directions:</label>
-            <input className="form-control" type="text" onChange={(e) => this.setState({ directions: e.target.value })} />
+            <textarea className="form-control" type="text" onChange={(e) => this.setState({ directions: e.target.value })} />
           </div>
 
           <div className="form-group">
             <label>Prep Time:</label>
-            <input className="form-control" type="text" onChange={(e) => this.setState({ prepTime: e.target.value })} />
+            <input className="form-control" type="text" placeholder="minutes..." onChange={(e) => this.setState({ prepTime: e.target.value })} />
           </div>
 
           <div className="form-group">
             <label>Cook Time:</label>
-            <input className="form-control" type="text" onChange={(e) => this.setState({ cookTime: e.target.value })} />
+            <input className="form-control" type="text" placeholder="minutes..." onChange={(e) => this.setState({ cookTime: e.target.value })} />
           </div>
 
           <div className="form-group">
