@@ -9,8 +9,8 @@ class AddRecipe extends Component {
       name: '',
       ingredients: '',
       directions: '',
-      prepTime: '',
-      cookTime: '',
+      prepTime: 0,
+      cookTime: 0,
       chefId: ''
     }
   }
@@ -32,7 +32,7 @@ class AddRecipe extends Component {
         name: this.state.name,
         ingredients: this.state.ingredients,
         directions: this.state.directions,
-        prepTime: this.prepTime,
+        prepTime: this.state.prepTime,
         cookTime: this.state.cookTime,
         chefId: this.state.chefId
       },
