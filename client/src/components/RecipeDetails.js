@@ -8,7 +8,7 @@ class RecipeDetails extends Component {
     if (recipe) {
       return (
         <div>
-          <h2>{ recipe.name }</h2>
+          <h2>{ recipe.name }{ " by: "}{ recipe.chef.username }</h2>
           <p>{ recipe.ingredients }</p>
           <p>{ recipe.directions }</p>
           <p>{ "prep:" }{ recipe.prepTime }</p>
@@ -16,8 +16,8 @@ class RecipeDetails extends Component {
           <p>All recipes by this chef:</p>
           <ul>
             {recipe.chef.recipes.map(item => {
-              return <li key={item.id}>{item.name}</li>
-            })
+              return <li key={ item.id }>{ item.name }</li>
+              })
             }
           </ul>
         </div>

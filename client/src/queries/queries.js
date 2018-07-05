@@ -54,6 +54,7 @@ const getRecipeQuery = gql`
         username
         recipes {
           name
+          id
         }
       }
     }
