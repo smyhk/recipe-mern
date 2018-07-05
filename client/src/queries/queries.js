@@ -25,15 +25,16 @@ const getChefsQuery = gql`
 `;
 
 // add a recipe to the database
-const createRecipeMutation = gql`
-  mutation($name: String!, $ingredients: String!, $directions: String!, $prepTime: Int!, $cookTime: Int!) {
-    createRecipe(name: $name, ingredients: $ingredients, directions: $directions, prepTime: $prepTime, cookTime: $cookTime) {
+const addRecipeMutation = gql`
+  mutation($name: String!, $ingredients: String!, $directions: String!, $prepTime: Int!, $cookTime: Int!, $chefId: ID!) {
+    createRecipe(name: $name, ingredients: $ingredients, directions: $directions, prepTime: $prepTime, cookTime: $cookTime, chefId: $chefId) {
       id
       name
       ingredients
       directions
       prepTime
       cookTime
+      chefId
     }
   }
 `;
@@ -48,6 +49,13 @@ const getRecipeQuery = gql`
       directions
       prepTime
       cookTime
+      chef {
+        id
+        username
+        recipes {
+          name
+        }
+      }
     }
   }
 `;
@@ -55,6 +63,6 @@ const getRecipeQuery = gql`
 export { 
   getChefsQuery, 
   getRecipesQuery, 
-  createRecipeMutation, 
+  addRecipeMutation, 
   getRecipeQuery 
 };

@@ -14,6 +14,12 @@ class RecipeDetails extends Component {
           <p>{ "prep:" }{ recipe.prepTime }</p>
           <p>{ "cook:" }{ recipe.cookTime }</p>
           <p>All recipes by this chef:</p>
+          <ul>
+            {recipe.chef.recipes.map(item => {
+              return <li key={item.id}>{item.name}</li>
+            })
+            }
+          </ul>
         </div>
       );
     } else {
