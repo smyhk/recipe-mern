@@ -20,7 +20,7 @@ class AddRecipe extends Component {
       return (<option disabled>Loading...</option>);
     } else {
       return data.chefs.map(chef => {
-        return (<option key={ chef.id } value={ chef.id }>{ chef.name }</option>);
+        return (<option key={ chef.id } value={ chef.id }>{ chef.username }</option>);
       });
     }
   }
