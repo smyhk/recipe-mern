@@ -30,7 +30,7 @@ class RecipeDetails extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="conatainer">
         <div>
           { this.displayRecipeDetails() }
         </div>

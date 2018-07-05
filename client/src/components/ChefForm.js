@@ -24,14 +24,16 @@ class AddChef extends Component {
 
   render() {
     return (
-      <form id="add-chef" onSubmit={ this.sumbitForm.bind(this) } >
-        <div className="">
-          <label>Chef name:</label>
-          <input type="text" onChange={ (e) => this.setState({ username: e.target.value }) } />
-        </div>
+      <div className="container">
+        <form id="add-chef" onSubmit={this.sumbitForm.bind(this)} >
+          <div className="form-group">
+            <label>Chef name:</label>
+            <input className="form-control " type="text" onChange={(e) => this.setState({ username: e.target.value })} />
+          </div>
 
-        <button>+</button>
-      </form>
+          <button>+</button>
+        </form>
+      </div>
     );
   }
 }

@@ -19,16 +19,16 @@ class RecipeList extends Component {
     } else {
       return data.recipes.map(recipe => {
         return(
-          <li key={ recipe.id } onClick={ () => { this.setState({ selected: recipe.id }) } }>{ recipe.name }</li>
+          <li className="list-group-item" key={ recipe.id } onClick={ () => { this.setState({ selected: recipe.id }) } }>{ recipe.name }</li>
         );
       });
     }
   }
   render() {
     return (
-      <div>
+      <div className="container">
         <h2>Latest Recipes</h2>
-        <ul>
+        <ul className="list-group">
           { this.displayRecipes() }
         </ul>
         <RecipeDetails recipeId={ this.state.selected }/>

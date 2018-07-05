@@ -45,42 +45,44 @@ class AddRecipe extends Component {
 
   render() {
     return (
-      <form id="add-recipe" onSubmit={ this.sumbitForm.bind(this) } >
-        <div className="">
-          <label>Recipe name:</label>
-          <input type="text" onChange={ (e) => this.setState({ name: e.target.value }) } />
-        </div>
+      <div className="container">
+        <form id="add-recipe" onSubmit={this.sumbitForm.bind(this)} >
+          <div className="form-group">
+            <label>Recipe name:</label>
+            <input className="form-control" type="text" onChange={(e) => this.setState({ name: e.target.value })} />
+          </div>
 
-        <div className="">
-          <label>Ingredients:</label>
-          <input type="text" onChange={ (e) => this.setState({ ingredients: e.target.value }) } />
-        </div>
+          <div className="form-group">
+            <label>Ingredients:</label>
+            <input className="form-control" type="text" onChange={(e) => this.setState({ ingredients: e.target.value })} />
+          </div>
 
-        <div className="">
-          <label>Directions:</label>
-          <input type="text" onChange={ (e) => this.setState({ directions: e.target.value }) } />
-        </div>
+          <div className="form-group">
+            <label>Directions:</label>
+            <input className="form-control" type="text" onChange={(e) => this.setState({ directions: e.target.value })} />
+          </div>
 
-        <div className="">
-          <label>Prep Time:</label>
-          <input type="text" onChange={ (e) => this.setState({ prepTime: e.target.value }) } />
-        </div>
+          <div className="form-group">
+            <label>Prep Time:</label>
+            <input className="form-control" type="text" onChange={(e) => this.setState({ prepTime: e.target.value })} />
+          </div>
 
-        <div className="">
-          <label>Cook Time:</label>
-          <input type="text" onChange={ (e) => this.setState({ cookTime: e.target.value }) } />
-        </div>
+          <div className="form-group">
+            <label>Cook Time:</label>
+            <input className="form-control" type="text" onChange={(e) => this.setState({ cookTime: e.target.value })} />
+          </div>
 
-        <div className="">
-          <label>Chef:</label>
-          <select onChange={ (e) => this.setState({ chefId: e.target.value }) } >
-            <option>Select Chef</option>
-            { this.displayChefs() }
-          </select>
-        </div>
+          <div className="form-group">
+            <label>Chef:</label>
+            <select className="form-control" onChange={(e) => this.setState({ chefId: e.target.value })} >
+              <option>Select Chef</option>
+              {this.displayChefs()}
+            </select>
+          </div>
 
-        <button>+</button>
-      </form>
+          <button>+</button>
+        </form>
+      </div>
     );
   }
 }
