@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 // components
-import Home from './pages/Home';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Jumbotron from './components/Jumbotron';
+import RecipeList from './components/RecipeList';
+import AddRecipe from './components/RecipeForm';
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div>
-          <Route exact path="/" component={Home} />
-        </div>
-      </Router>
+      <div>
+        <Header />
+        <Jumbotron title="Welcome Brandi!" subtitle="A place for your recipes..."/>
+        <RecipeList />
+        <AddRecipe />
+        <Footer />
+      </div>
     );
   }
 }
