@@ -87,7 +87,7 @@ const RootQuery = new GraphQLObjectType({
 const Mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
-    addCheff: {
+    addChef: {
       type: ChefType,
       args: {
         username: { type: new GraphQLNonNull(GraphQLString) }

@@ -24,6 +24,16 @@ const getChefsQuery = gql`
   }
 `;
 
+// add a chef to the database
+const addChefMutation = gql`
+  mutation($username: String!) {
+    addChef(username: $username) {
+      id
+      username
+    }
+  }
+`
+
 // add a recipe to the database
 const addRecipeMutation = gql`
   mutation($name: String!, $ingredients: String!, $directions: String!, $prepTime: Int!, $cookTime: Int!, $chefId: ID!) {
@@ -60,9 +70,10 @@ const getRecipeQuery = gql`
   }
 `;
 
-export { 
+export {
   getChefsQuery, 
-  getRecipesQuery, 
+  getRecipesQuery,
+  addChefMutation, 
   addRecipeMutation, 
   getRecipeQuery 
 };

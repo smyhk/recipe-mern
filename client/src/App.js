@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Jumbotron from './components/Jumbotron';
 import RecipeList from './components/RecipeList';
 import AddRecipe from './components/RecipeForm';
+import AddChef from './components/ChefForm';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
         <Jumbotron title="Welcome Brandi!" subtitle="A place for your recipes..."/>
         <RecipeList />
         <AddRecipe />
+        <AddChef />
         <Footer />
       </div>
     );
