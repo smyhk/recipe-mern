@@ -27,7 +27,6 @@ class RecipeList extends Component {
   render() {
     return (
       <div className="container">
-        <h2>Latest Recipes</h2>
         <ul className="list-group">
           { this.displayRecipes() }
         </ul>

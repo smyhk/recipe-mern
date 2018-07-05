@@ -14,10 +14,11 @@ class App extends Component {
       <div className="container">
         <Header />
         <Jumbotron title="Welcome Brandi!" subtitle="A place for your recipes..."/>
+        <h2>Latest Recipes</h2>
         <RecipeList />
-        {"Add Recipe to Database"}
+        <h2>Add Recipe to Database</h2>
         <AddRecipe />
-        {"Add Chef to Database"}
+        <h2>Add Chef to Database</h2>
         <AddChef />
         <Footer />
       </div>
