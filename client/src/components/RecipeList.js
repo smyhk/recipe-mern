@@ -17,7 +17,7 @@ class RecipeList extends Component {
     if (data.loading) {
       return( <div>Loading recipes...</div>);
     } else {
-      return data.recipes.map(recipe => {
+      return data.recipes.slice(-5,).map(recipe => {
         return(
           <li className="list-group-item" key={ recipe.id } onClick={ () => { this.setState({ selected: recipe.id }) } }>{ recipe.name }</li>
         );
