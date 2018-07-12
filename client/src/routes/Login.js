@@ -1,35 +1,70 @@
 import React, { Component } from 'react';
+import fire from '../config/Fire';
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
+      email: '',
       password: ''
-    }
+    };
   }
 
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  }
+
+  login = (e) => {
+    e.preventDefault();
+    fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
+    }).catch((error) => {
+        console.info(error);
+      });
+  }
+
+  signup = (e) => {
+    e.preventDefault();
+    fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
+    }).then((u)=>{console.info(u)})
+    .catch((error) => {
+        console.info(error);
+      })
+  }
   render() {
     return (
-      <div className="container">
+      <div className="col-md-6">
         <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Username</label>
+            <input 
+              value={this.state.email} 
+              onChange={this.handleChange} 
+              type="email" 
+              name="email" 
+              className="form-control" 
+              id="exampleInputEmail1" 
+              aria-describedby="emailHelp" 
+              placeholder="Enter email" 
+            />
+            <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
-            <small id="passwordHelpBlock" class="form-text text-muted">
-              Your password must be 8-20 characters long and contain only letters and numbers.
-            </small>
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Password</label>
+            <input 
+              value={this.state.password} 
+              onChange={this.handleChange} 
+              type="password" name="password" 
+              className="form-control" 
+              id="exampleInputPassword1" 
+              placeholder="Password" 
+            />
           </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" onClick={this.login} className="btn btn-primary">Login</button>
+          <button onClick={this.signup} style={{ marginLeft: '25px' }} className="btn btn-success">Signup</button>
         </form>
       </div>
     );
   }
 }
-
 export default Login;

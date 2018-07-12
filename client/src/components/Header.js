@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import fire from '../config/Fire';
 
 class Header extends Component {
+  logout = () => {
+    fire.auth().signOut();
+  }
+
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -13,6 +18,9 @@ class Header extends Component {
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
               <a className="nav-link" href="/login">Login <span className="sr-only">(current)</span></a>
+            </li>
+            <li className="nav-item active">
+              <a className="nav-link" href="/" onClick={this.logout}>Logout</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/add-recipe">Add recipe</a>

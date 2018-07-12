@@ -24,7 +24,7 @@ class AddChef extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="col-md-6">
         <h2>Add a Chef</h2>
         <form id="add-chef" onSubmit={this.sumbitForm.bind(this)} >
           <div className="form-group">
