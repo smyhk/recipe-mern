@@ -93,7 +93,7 @@ const Mutation = new GraphQLObjectType({
         username: { type: new GraphQLNonNull(GraphQLString) }
       },
       resolve(parent, args) {
-        let chef = new Chef({
+        const chef = new Chef({
           username: args.username
         });
         return chef.save();
@@ -110,7 +110,7 @@ const Mutation = new GraphQLObjectType({
         chefId: { type: new GraphQLNonNull(GraphQLID) }
       },
       resolve(parent, args) {
-        let recipe = new Recipe({
+        const recipe = new Recipe({
           name: args.name,
           ingredients: args.ingredients,
           directions: args.directions,
