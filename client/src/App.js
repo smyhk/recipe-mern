@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Home from './routes/Home';
 import AddRecipe from './routes/RecipeForm';
 import AddChef from './routes/ChefForm';
+import Login from './routes/Login';
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/add-recipe" component={AddRecipe} />
             <Route exact path="/add-chef" component={AddChef} />
+            <Route exact path="/login" component={Login} />
           </Switch>
         </Router>
         <Footer />
