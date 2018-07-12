@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // components
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Jumbotron from './components/Jumbotron';
 import RecipeList from './components/RecipeList';
-import AddRecipe from './components/RecipeForm';
-import AddChef from './components/ChefForm';
+import AddRecipe from './routes/RecipeForm';
+import AddChef from './routes/ChefForm';
 
 class App extends Component {
   render() {

@@ -1,8 +1,8 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 // define Chef model
 const Chef = mongoose.model('Chef', {
   username: String,
 });
 
-export default Chef;
+module.exports = Chef;
