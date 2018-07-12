@@ -46,6 +46,7 @@ class AddRecipe extends Component {
   render() {
     return (
       <div className="container">
+        <h2>Add a recipe to the database</h2>
         <form id="add-recipe" onSubmit={this.sumbitForm.bind(this)} >
           <div className="form-group">
             <label>Recipe name:</label>

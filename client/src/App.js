@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+// components
+import Header from './components/Header';
+import Footer from './components/Footer';
+
 // routes
 import Home from './routes/Home';
 import AddRecipe from './routes/RecipeForm';
@@ -10,6 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <Header />
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
@@ -17,6 +22,7 @@ class App extends Component {
             <Route exact path="/add-chef" component={AddChef} />
           </Switch>
         </Router>
+        <Footer />
       </div>
     );
   }
