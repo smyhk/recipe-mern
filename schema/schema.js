@@ -3,9 +3,9 @@ const Chef = require('../models/chef');
 const Recipe = require('../models/recipe');
 
 // get graphql types
-const { 
-  GraphQLObjectType, 
-  GraphQLString, 
+const {
+  GraphQLObjectType,
+  GraphQLString,
   GraphQLSchema,
   GraphQLID,
   GraphQLInt,
@@ -61,7 +61,7 @@ const RootQuery = new GraphQLObjectType({
     },
     chef: {
       type: ChefType,
-      args: {id: { type: GraphQLID }},
+      args: { id: { type: GraphQLID } },
       async resolve(parent, args) {
         return await Chef.findById(args.id);
       }
@@ -125,6 +125,6 @@ const Mutation = new GraphQLObjectType({
 });
 
 module.exports = new GraphQLSchema({
-    query: RootQuery,
-    mutation: Mutation
+  query: RootQuery,
+  mutation: Mutation
 });

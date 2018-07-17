@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { graphql, compose } from 'react-apollo'; // for binding to component
-import { getChefsQuery, addRecipeMutation, getRecipesQuery } from '../queries/queries';
+import {
+  getChefsQuery,
+  addRecipeMutation,
+  getRecipesQuery
+} from '../queries/queries';
 
 class AddRecipe extends Component {
   constructor(props) {
@@ -12,15 +16,19 @@ class AddRecipe extends Component {
       prepTime: 0,
       cookTime: 0,
       chefId: ''
-    }
+    };
   }
   displayChefs() {
     var data = this.props.getChefsQuery;
     if (data.loading) {
-      return (<option disabled>Loading...</option>);
+      return <option disabled>Loading...</option>;
     } else {
       return data.chefs.map(chef => {
-        return (<option key={ chef.id } value={ chef.id }>{ chef.username }</option>);
+        return (
+          <option key={chef.id} value={chef.id}>
+            {chef.username}
+          </option>
+        );
       });
     }
   }
@@ -36,7 +44,7 @@ class AddRecipe extends Component {
         cookTime: this.state.cookTime,
         chefId: this.state.chefId
       },
-      refetchQueries: [ { query: getRecipesQuery } ]
+      refetchQueries: [{ query: getRecipesQuery }]
     });
     // clear form after submit
     var frm = document.getElementById('add-recipe');
@@ -47,35 +55,60 @@ class AddRecipe extends Component {
     return (
       <div className="col-md-6">
         <h2>Add a recipe to the database</h2>
-        <form id="add-recipe" onSubmit={this.sumbitForm.bind(this)} >
+        <form id="add-recipe" onSubmit={this.sumbitForm.bind(this)}>
           <div className="form-group">
             <label>Recipe name:</label>
-            <input className="form-control" type="text" onChange={(e) => this.setState({ name: e.target.value })} />
+            <input
+              className="form-control"
+              type="text"
+              onChange={e => this.setState({ name: e.target.value })}
+            />
           </div>
 
           <div className="form-group">
             <label>Ingredients:</label>
-            <textarea className="form-control" type="text" onChange={(e) => this.setState({ ingredients: e.target.value })} />
+            <textarea
+              className="form-control"
+              type="text"
+              onChange={e => this.setState({ ingredients: e.target.value })}
+            />
           </div>
 
           <div className="form-group">
             <label>Directions:</label>
-            <textarea className="form-control" type="text" onChange={(e) => this.setState({ directions: e.target.value })} />
+            <textarea
+              className="form-control"
+              type="text"
+              onChange={e => this.setState({ directions: e.target.value })}
+            />
           </div>
 
           <div className="form-group">
             <label>Prep Time:</label>
-            <input className="form-control" type="text" placeholder="minutes..." onChange={(e) => this.setState({ prepTime: e.target.value })} />
+            <input
+              className="form-control"
+              type="text"
+              placeholder="minutes..."
+              onChange={e => this.setState({ prepTime: e.target.value })}
+            />
           </div>
 
           <div className="form-group">
             <label>Cook Time:</label>
-            <input className="form-control" type="text" placeholder="minutes..." onChange={(e) => this.setState({ cookTime: e.target.value })} />
+            <input
+              className="form-control"
+              type="text"
+              placeholder="minutes..."
+              onChange={e => this.setState({ cookTime: e.target.value })}
+            />
           </div>
 
           <div className="form-group">
             <label>Chef:</label>
-            <select className="form-control" onChange={(e) => this.setState({ chefId: e.target.value })} >
+            <select
+              className="form-control"
+              onChange={e => this.setState({ chefId: e.target.value })}
+            >
               <option>Select Chef</option>
               {this.displayChefs()}
             </select>
@@ -90,5 +123,5 @@ class AddRecipe extends Component {
 
 export default compose(
   graphql(getChefsQuery, { name: 'getChefsQuery' }),
-  graphql(addRecipeMutation, { name: 'addRecipeMutation'})
+  graphql(addRecipeMutation, { name: 'addRecipeMutation' })
 )(AddRecipe);

@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';  // parses queries
+import { gql } from 'apollo-boost'; // parses queries
 
 // list all recipes
 const getRecipesQuery = gql`
@@ -32,12 +32,26 @@ const addChefMutation = gql`
       username
     }
   }
-`
+`;
 
 // add a recipe to the database
 const addRecipeMutation = gql`
-  mutation($name: String!, $ingredients: String!, $directions: String!, $prepTime: Int!, $cookTime: Int!, $chefId: ID!) {
-    addRecipe(name: $name, ingredients: $ingredients, directions: $directions, prepTime: $prepTime, cookTime: $cookTime, chefId: $chefId) {
+  mutation(
+    $name: String!
+    $ingredients: String!
+    $directions: String!
+    $prepTime: Int!
+    $cookTime: Int!
+    $chefId: ID!
+  ) {
+    addRecipe(
+      name: $name
+      ingredients: $ingredients
+      directions: $directions
+      prepTime: $prepTime
+      cookTime: $cookTime
+      chefId: $chefId
+    ) {
       id
       name
       ingredients
@@ -71,9 +85,9 @@ const getRecipeQuery = gql`
 `;
 
 export {
-  getChefsQuery, 
+  getChefsQuery,
   getRecipesQuery,
-  addChefMutation, 
-  addRecipeMutation, 
-  getRecipeQuery 
+  addChefMutation,
+  addRecipeMutation,
+  getRecipeQuery
 };

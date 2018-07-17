@@ -7,7 +7,7 @@ class AddChef extends Component {
     super(props);
     this.state = {
       username: ''
-    }
+    };
   }
 
   sumbitForm(e) {
@@ -26,10 +26,14 @@ class AddChef extends Component {
     return (
       <div className="col-md-6">
         <h2>Add a Chef</h2>
-        <form id="add-chef" onSubmit={this.sumbitForm.bind(this)} >
+        <form id="add-chef" onSubmit={this.sumbitForm.bind(this)}>
           <div className="form-group">
             <label>Chef name:</label>
-            <input className="form-control " type="text" onChange={(e) => this.setState({ username: e.target.value })} />
+            <input
+              className="form-control "
+              type="text"
+              onChange={e => this.setState({ username: e.target.value })}
+            />
           </div>
 
           <button>+</button>
@@ -39,6 +43,6 @@ class AddChef extends Component {
   }
 }
 
-export default compose(
-  graphql(addChefMutation, { name: 'addChefMutation'})
-)(AddChef);
+export default compose(graphql(addChefMutation, { name: 'addChefMutation' }))(
+  AddChef
+);

@@ -8,7 +8,10 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Jumbotron title="Welcome Brandi!" subtitle="A place for your recipes..." />
+        <Jumbotron
+          title="Welcome Brandi!"
+          subtitle="A place for your recipes..."
+        />
         <h2>Latest Recipes</h2>
         <RecipeList />
       </div>

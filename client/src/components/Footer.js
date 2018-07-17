@@ -10,7 +10,9 @@ class Footer extends Component {
     return (
       <footer className="footer">
         <div className="container">
-          <span className="text-muted">Brandi's Recipe Site &copy; {this.state.year}</span>
+          <span className="text-muted">
+            {"Brandi's Recipe Site"} &copy; {this.state.year}
+          </span>
         </div>
       </footer>
     );

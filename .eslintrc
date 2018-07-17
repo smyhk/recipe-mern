@@ -4,11 +4,12 @@
     "no-console": ["warn", { "allow": ["info", "error"] }],
     "array-bracket-spacing": [2, "always"],
     "no-use-before-define": [
-      2, 
-      {"classes": true, "functions": false, "variables": false}
+      2,
+      { "classes": true, "functions": false, "variables": false }
     ],
     "no-unused-vars": [
-      "error", { "vars": "all", "args": "none", "ignoreRestSiblings": false }
+      "error",
+      { "vars": "all", "args": "none", "ignoreRestSiblings": false }
     ],
     "no-shadow": 0,
     "prefer-const": 1,
@@ -16,9 +17,11 @@
     "space-before-function-paren": [
       2,
       { "anonymous": "always", "named": "never" }
-    ]
+    ],
+    "prettier/prettier": "error"
   },
-  "extends": ["eslint:recommended"],
+  "extends": ["eslint:recommended", "prettier"],
+  "plugins": ["prettier"],
   "parserOptions": {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,

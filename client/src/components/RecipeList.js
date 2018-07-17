@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { graphql } from "react-apollo"; // for binding to component
-import { getRecipesQuery } from "../queries/queries";
+import React, { Component } from 'react';
+import { graphql } from 'react-apollo'; // for binding to component
+import { getRecipesQuery } from '../queries/queries';
 
 // components
-import RecipeDetails from "./RecipeDetails";
+import RecipeDetails from './RecipeDetails';
 
 class RecipeList extends Component {
   constructor(props) {
