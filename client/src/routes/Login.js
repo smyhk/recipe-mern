@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import fire from "../config/Fire";
+import React, { Component } from 'react';
+import fire from '../config/Fire';
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: ""
+      email: '',
+      password: ''
     };
   }
 
@@ -80,7 +80,7 @@ class Login extends Component {
           </button>
           <button
             onClick={this.signup}
-            style={{ marginLeft: "25px" }}
+            style={{ marginLeft: '25px' }}
             className="btn btn-success"
           >
             Signup
