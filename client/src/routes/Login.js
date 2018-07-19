@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import fire from '../config/Fire';
+import { auth } from '../config';
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      error: null
     };
   }
 
@@ -17,29 +18,16 @@ class Login extends Component {
 
   login = e => {
     e.preventDefault();
-    fire
-      .auth()
-      .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(u => {})
-      .catch(error => {
-        console.info(error);
-      });
+    auth.loginWithEmailAndPassword(this.state.email, this.state.password);
   };
 
   signup = e => {
     e.preventDefault();
-    fire
-      .auth()
-      .createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(u => {})
-      .then(u => {
-        console.info(u);
-      })
-      .catch(error => {
-        console.info(error);
-      });
+    auth.signupWithEmailAndPassword(this.state.email, this.state.password);
   };
+
   render() {
+    const error = this.state.error;
     return (
       <div className="col-md-6">
         <form>
@@ -85,6 +73,7 @@ class Login extends Component {
           >
             Signup
           </button>
+          {error && <p>{error.message}</p>}
         </form>
       </div>
     );

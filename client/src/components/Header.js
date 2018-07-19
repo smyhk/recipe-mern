@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import fire from '../config/Fire';
+import { auth } from '../config';
 
 class Header extends Component {
   logout = () => {
-    fire.auth().signOut();
+    auth.logout();
   };
 
   render() {

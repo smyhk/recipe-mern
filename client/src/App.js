@@ -5,11 +5,11 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
-import fire from './config/Fire';
 
 // components
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { firebase } from './config';
 
 // routes
 import Home from './routes/Home';
@@ -17,13 +17,13 @@ import AddRecipe from './routes/RecipeForm';
 import AddChef from './routes/ChefForm';
 import Login from './routes/Login';
 
-const authListener = () => {
-  fire.auth().onAuthStateChanged(user => {
-    console.info(user);
+const check = () => {
+  firebase.auth.onAuthStateChanged(user => {
     if (user) {
-      localStorage.setItem('user', user.uid);
+      console.info(user.getIdToken());
+      console.info(user.email);
     } else {
-      localStorage.removeItem('user');
+      // No user is signed in.
     }
   });
 };
@@ -47,7 +47,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 
 class App extends Component {
   componentDidMount() {
-    authListener();
+    check();
   }
 
   render() {
