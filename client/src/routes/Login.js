@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { auth } from '../config';
 
 class Login extends Component {
@@ -17,17 +18,34 @@ class Login extends Component {
   };
 
   login = e => {
+    const { history } = this.props;
     e.preventDefault();
-    auth.loginWithEmailAndPassword(this.state.email, this.state.password);
+    auth
+      .loginWithEmailAndPassword(this.state.email, this.state.password)
+      .then(authUser => {
+        history.push('/');
+      })
+      .catch(error => {
+        this.setState({ error: error });
+      });
   };
 
   signup = e => {
+    const { history } = this.props;
     e.preventDefault();
-    auth.signupWithEmailAndPassword(this.state.email, this.state.password);
+    auth
+      .signupWithEmailAndPassword(this.state.email, this.state.password)
+      .then(authUser => {
+        history.push('/');
+      })
+      .catch(error => {
+        this.setState({ error: error });
+      });
   };
 
   render() {
-    const error = this.state.error;
+    const { email, password, error } = this.state;
+    const isInvalid = password === '' || email === '';
     return (
       <div className="col-md-6">
         <form>
@@ -60,6 +78,7 @@ class Login extends Component {
             />
           </div>
           <button
+            disabled={isInvalid}
             type="submit"
             onClick={this.login}
             className="btn btn-primary"
@@ -67,6 +86,7 @@ class Login extends Component {
             Login
           </button>
           <button
+            disabled={isInvalid}
             onClick={this.signup}
             style={{ marginLeft: '25px' }}
             className="btn btn-success"
@@ -79,4 +99,4 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+export default withRouter(Login);

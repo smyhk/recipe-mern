@@ -6,9 +6,8 @@ export const signupWithEmailAndPassword = (email, password) => {
 };
 
 // sign in
-export const loginWithEmailAndPassword = (email, password) => {
+export const loginWithEmailAndPassword = (email, password) =>
   auth.signInWithEmailAndPassword(email, password);
-};
 
 // sign out
 export const logout = () => auth.signOut();

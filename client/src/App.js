@@ -20,8 +20,8 @@ import Login from './routes/Login';
 const check = () => {
   firebase.auth.onAuthStateChanged(user => {
     if (user) {
-      console.info(user.getIdToken());
       console.info(user.email);
+      localStorage.setItem('user', user.getIdToken());
     } else {
       // No user is signed in.
     }

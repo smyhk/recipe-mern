@@ -4,6 +4,7 @@ import { auth } from '../config';
 class Header extends Component {
   logout = () => {
     auth.logout();
+    localStorage.clear();
   };
 
   render() {
