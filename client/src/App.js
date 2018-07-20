@@ -17,17 +17,6 @@ import AddRecipe from './routes/RecipeForm';
 import AddChef from './routes/ChefForm';
 import Login from './routes/Login';
 
-const check = () => {
-  firebase.auth.onAuthStateChanged(user => {
-    if (user) {
-      console.info(user.email);
-      localStorage.setItem('user', user.getIdToken());
-    } else {
-      // No user is signed in.
-    }
-  });
-};
-
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
@@ -46,14 +35,30 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 );
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      authUser: null
+    };
+  }
+
   componentDidMount() {
-    check();
+    firebase.auth.onAuthStateChanged(user => {
+      if (user) {
+        console.info(user.email);
+        this.setState({ authUser: user });
+        localStorage.setItem('user', user.getIdToken());
+      } else {
+        this.setState({ authUser: null });
+        localStorage.clear();
+      }
+    });
   }
 
   render() {
     return (
       <div className="container">
-        <Header />
+        <Header authUser={this.state.authUser} />
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />

@@ -8,6 +8,7 @@ class Header extends Component {
   };
 
   render() {
+    const { authUser } = this.props;
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="/">
@@ -27,26 +28,27 @@ class Header extends Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <a className="nav-link" href="/login">
-                Login <span className="sr-only">(current)</span>
-              </a>
-            </li>
-            <li className="nav-item active">
-              <a className="nav-link" href="/" onClick={this.logout}>
-                Logout
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/add-recipe">
-                Add recipe
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/add-chef">
-                Add chef
-              </a>
-            </li>
+            {authUser && (
+              <div>
+                <li className="nav-item active">
+                  <a className="nav-link" href="/" onClick={this.logout}>
+                    Logout
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/add-recipe">
+                    Add recipe
+                  </a>
+                </li>
+              </div>
+            )}
+            {!authUser && (
+              <li className="nav-item active">
+                <a className="nav-link" href="/login">
+                  Login <span className="sr-only">(current)</span>
+                </a>
+              </li>
+            )}
           </ul>
           <form className="form-inline my-2 my-lg-0">
             <input
