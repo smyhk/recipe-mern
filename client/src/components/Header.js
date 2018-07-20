@@ -29,7 +29,7 @@ class Header extends Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             {authUser && (
-              <div>
+              <ul className="navbar-nav mr-auto">
                 <li className="nav-item active">
                   <a className="nav-link" href="/" onClick={this.logout}>
                     Logout
@@ -40,7 +40,7 @@ class Header extends Component {
                     Add recipe
                   </a>
                 </li>
-              </div>
+              </ul>
             )}
             {!authUser && (
               <li className="nav-item active">

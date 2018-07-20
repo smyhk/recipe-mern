@@ -14,7 +14,6 @@ import { firebase } from './config';
 // routes
 import Home from './routes/Home';
 import AddRecipe from './routes/RecipeForm';
-import AddChef from './routes/ChefForm';
 import Login from './routes/Login';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -47,7 +46,7 @@ class App extends Component {
       if (user) {
         console.info(user.email);
         this.setState({ authUser: user });
-        localStorage.setItem('user', user.getIdToken());
+        localStorage.setItem('user', user.uid);
       } else {
         this.setState({ authUser: null });
         localStorage.clear();
@@ -63,7 +62,6 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <PrivateRoute exact path="/add-recipe" component={AddRecipe} />
-            <PrivateRoute exact path="/add-chef" component={AddChef} />
             <Route exact path="/login" component={Login} />
           </Switch>
         </Router>

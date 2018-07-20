@@ -11,7 +11,7 @@ class RecipeDetails extends Component {
           <h2>
             {recipe.name}
             {' by: '}
-            {recipe.chef.username}
+            {/* {recipe.chef.username} */}
           </h2>
           <p>{recipe.ingredients}</p>
           <p>{recipe.directions}</p>
@@ -23,12 +23,12 @@ class RecipeDetails extends Component {
             {'cook:'}
             {recipe.cookTime}
           </p>
-          <p>All recipes by this chef:</p>
+          {/* <p>All recipes by this chef:</p>
           <ul>
             {recipe.chef.recipes.map(item => {
               return <li key={item.id}>{item.name}</li>;
             })}
-          </ul>
+          </ul> */}
         </div>
       );
     } else {

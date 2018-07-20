@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { graphql, compose } from 'react-apollo'; // for binding to component
 import {
-  getChefsQuery,
+  //getChefsQuery,
   addRecipeMutation,
   getRecipesQuery
 } from '../queries/queries';
@@ -15,23 +15,23 @@ class AddRecipe extends Component {
       directions: '',
       prepTime: 0,
       cookTime: 0,
-      chefId: ''
+      chefId: localStorage.getItem('user')
     };
   }
-  displayChefs() {
-    var data = this.props.getChefsQuery;
-    if (data.loading) {
-      return <option disabled>Loading...</option>;
-    } else {
-      return data.chefs.map(chef => {
-        return (
-          <option key={chef.id} value={chef.id}>
-            {chef.username}
-          </option>
-        );
-      });
-    }
-  }
+  // displayChefs() {
+  //   var data = this.props.getChefsQuery;
+  //   if (data.loading) {
+  //     return <option disabled>Loading...</option>;
+  //   } else {
+  //     return data.chefs.map(chef => {
+  //       return (
+  //         <option key={chef.id} value={chef.id}>
+  //           {chef.username}
+  //         </option>
+  //       );
+  //     });
+  //   }
+  // }
 
   sumbitForm(e) {
     e.preventDefault();
@@ -103,7 +103,7 @@ class AddRecipe extends Component {
             />
           </div>
 
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Chef:</label>
             <select
               className="form-control"
@@ -112,7 +112,7 @@ class AddRecipe extends Component {
               <option>Select Chef</option>
               {this.displayChefs()}
             </select>
-          </div>
+          </div> */}
 
           <button>+</button>
         </form>
@@ -122,6 +122,6 @@ class AddRecipe extends Component {
 }
 
 export default compose(
-  graphql(getChefsQuery, { name: 'getChefsQuery' }),
+  //graphql(getChefsQuery, { name: 'getChefsQuery' }),
   graphql(addRecipeMutation, { name: 'addRecipeMutation' })
 )(AddRecipe);

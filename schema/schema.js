@@ -1,5 +1,5 @@
 const graphql = require('graphql');
-const Chef = require('../models/chef');
+// const Chef = require('../models/chef');
 const Recipe = require('../models/recipe');
 
 // get graphql types
@@ -25,8 +25,8 @@ const RecipeType = new GraphQLObjectType({
     cookTime: { type: GraphQLInt },
     chef: {
       type: ChefType,
-      async resolve(parent, args) {
-        return await Chef.findById(parent.chefId);
+      resolve(parent, args) {
+        return Chef.findById(parent.chefId);
       }
     }
   })
@@ -40,8 +40,8 @@ const ChefType = new GraphQLObjectType({
     username: { type: GraphQLString },
     recipes: {
       type: new GraphQLList(RecipeType),
-      async resolve(parent, args) {
-        return await Recipe.find({ chefId: parent.id });
+      resolve(parent, args) {
+        return Recipe.find({ chefId: parent.id });
       }
     }
   })
@@ -54,30 +54,31 @@ const RootQuery = new GraphQLObjectType({
     recipe: {
       type: RecipeType,
       args: { id: { type: GraphQLID } },
-      async resolve(parent, args) {
+      resolve(parent, args) {
         // code to get data from db / other source
-        return await Recipe.findById(args.id);
+        return Recipe.findById(args.id);
       }
     },
     chef: {
       type: ChefType,
       args: { id: { type: GraphQLID } },
-      async resolve(parent, args) {
-        return await Chef.findById(args.id);
+      resolve(parent, args) {
+        return Chef.findById(args.id);
       }
     },
     recipes: {
       type: new GraphQLList(RecipeType),
-      async resolve(parent, args) {
+      args: { last: { type: GraphQLInt } },
+      resolve(parent, args) {
         // return recipes;
-        return await Recipe.find({});
+        return Recipe.find({});
       }
     },
     chefs: {
       type: new GraphQLList(ChefType),
-      async resolve(parents, args) {
+      resolve(parents, args) {
         // return chefs;
-        return await Chef.find({});
+        return Chef.find({});
       }
     }
   }
@@ -92,11 +93,11 @@ const Mutation = new GraphQLObjectType({
       args: {
         username: { type: new GraphQLNonNull(GraphQLString) }
       },
-      async resolve(parent, args) {
+      resolve(parent, args) {
         const chef = new Chef({
           username: args.username
         });
-        return await chef.save();
+        return chef.save();
       }
     },
     addRecipe: {
@@ -109,7 +110,7 @@ const Mutation = new GraphQLObjectType({
         cookTime: { type: new GraphQLNonNull(GraphQLInt) },
         chefId: { type: new GraphQLNonNull(GraphQLID) }
       },
-      async resolve(parent, args) {
+      resolve(parent, args) {
         const recipe = new Recipe({
           name: args.name,
           ingredients: args.ingredients,
@@ -118,7 +119,7 @@ const Mutation = new GraphQLObjectType({
           cookTime: args.cookTime,
           chefId: args.chefId
         });
-        return await recipe.save();
+        return recipe.save();
       }
     }
   }

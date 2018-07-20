@@ -15,24 +15,24 @@ const getRecipesQuery = gql`
 `;
 
 // list all chefs
-const getChefsQuery = gql`
-  {
-    chefs {
-      username
-      id
-    }
-  }
-`;
+// const getChefsQuery = gql`
+//   {
+//     chefs {
+//       username
+//       id
+//     }
+//   }
+// `;
 
 // add a chef to the database
-const addChefMutation = gql`
-  mutation($username: String!) {
-    addChef(username: $username) {
-      id
-      username
-    }
-  }
-`;
+// const addChefMutation = gql`
+//   mutation($username: String!) {
+//     addChef(username: $username) {
+//       id
+//       username
+//     }
+//   }
+// `;
 
 // add a recipe to the database
 const addRecipeMutation = gql`
@@ -72,22 +72,14 @@ const getRecipeQuery = gql`
       directions
       prepTime
       cookTime
-      chef {
-        id
-        username
-        recipes {
-          name
-          id
-        }
-      }
     }
   }
 `;
 
 export {
-  getChefsQuery,
+  // getChefsQuery,
   getRecipesQuery,
-  addChefMutation,
+  // addChefMutation,
   addRecipeMutation,
   getRecipeQuery
 };
