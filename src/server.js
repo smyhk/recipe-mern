@@ -1,20 +1,14 @@
 const { GraphQLServer } = require('graphql-yoga');
 const mongoose = require('mongoose');
 
-const typeDefs = `
-  type Query {
-    info: String!
-  }
-`;
+const Query = require('./resolvers/Query');
 
 const resolvers = {
-  Query: {
-    info: () => "The API for the recipe app"
-  }
+  Query
 };
 
 const server = new GraphQLServer({
-  typeDefs,
+  typeDefs: './src/schema/schema.graphql',
   resolvers
 });
 
