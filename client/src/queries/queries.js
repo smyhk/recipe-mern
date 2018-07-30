@@ -14,26 +14,6 @@ const getRecipesQuery = gql`
   }
 `;
 
-// list all chefs
-// const getChefsQuery = gql`
-//   {
-//     chefs {
-//       username
-//       id
-//     }
-//   }
-// `;
-
-// add a chef to the database
-// const addChefMutation = gql`
-//   mutation($username: String!) {
-//     addChef(username: $username) {
-//       id
-//       username
-//     }
-//   }
-// `;
-
 // add a recipe to the database
 const addRecipeMutation = gql`
   mutation(
@@ -62,9 +42,9 @@ const addRecipeMutation = gql`
   }
 `;
 
-// retrieve a single recipe; lists other recipes by the same chef
+// retrieve a single recipe
 const getRecipeQuery = gql`
-  query($id: ID) {
+  query($id: ID!) {
     recipe(id: $id) {
       id
       name
@@ -77,9 +57,7 @@ const getRecipeQuery = gql`
 `;
 
 export {
-  // getChefsQuery,
   getRecipesQuery,
-  // addChefMutation,
   addRecipeMutation,
   getRecipeQuery
 };
