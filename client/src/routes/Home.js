@@ -1,20 +1,30 @@
 import React, { Component } from 'react';
+import { Grid } from '@material-ui/core';
 
 // components
-import Jumbotron from '../components/Jumbotron';
 import RecipeList from '../components/RecipeList';
+import LeftPane from '../components/LeftPane';
+import RightPane from '../components/RightPane';
+
+const styles = {
+  Paper: {
+    padding: 20,
+    marginTop: 10,
+    marginBottom: 10
+  }
+}
 
 class Home extends Component {
   render() {
     return (
-      <div>
-        <Jumbotron
-          title="Welcome Brandi!"
-          subtitle="A place for your recipes..."
-        />
-        <h2>Latest Recipes</h2>
-        <RecipeList />
-      </div>
+      <Grid container spacing={8}>
+        <Grid item sm>
+          <LeftPane styles={styles} />
+        </Grid>
+        <Grid item sm>
+          <RightPane styles={styles} />
+        </Grid>
+      </Grid>
     );
   }
 }
