@@ -10,6 +10,7 @@ import {
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { firebase } from './config';
+import { categories } from './store';
 
 // routes
 import Home from './routes/Home';
@@ -65,7 +66,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
           </Switch>
         </Router>
-        <Footer />
+        <Footer categories={categories} />
       </div>
     );
   }

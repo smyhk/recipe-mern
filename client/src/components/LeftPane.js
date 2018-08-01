@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Paper } from '@material-ui/core';
 
-export default ({ styles }) =>
-  <Paper style={styles.Paper}>
-    Left Pane
-  </Paper>
+import RecipeList from '../components/RecipeList';
+
+class LeftPane extends Component {
+  render() {
+    const { styles } = this.props;
+    return (
+      <Paper style={styles.Paper}>
+        <RecipeList />
+      </Paper>
+    )
+  }
+}
+
+export default LeftPane;

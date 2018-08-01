@@ -8,6 +8,7 @@ class Footer extends Component {
   }
 
   render() {
+    const { categories } = this.props;
     return (
       <Paper>
         <Tabs
@@ -16,9 +17,10 @@ class Footer extends Component {
           textColor="primary"
           centered
         >
-          <Tab label="Item One" />
-          <Tab label="Item Two" />
-          <Tab label="Item Three" />
+          <Tab label="All" /> 
+          {categories.map(c =>
+            <Tab key={c} label={c} />
+          )}
         </Tabs>
       </Paper>
     );
