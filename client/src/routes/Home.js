@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Grid } from '@material-ui/core';
 
 // components
-import RecipeList from '../components/RecipeList';
 import LeftPane from '../components/LeftPane';
 import RightPane from '../components/RightPane';
 
