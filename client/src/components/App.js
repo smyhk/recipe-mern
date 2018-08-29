@@ -2,25 +2,22 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect
+  Redirect,
+  Switch
 } from 'react-router-dom';
 
 // components
-import Header from './components/Header';
-import Footer from './components/Footer';
-import { firebase } from './config';
-import { categories } from './store';
-
-// routes
-import Home from './routes/Home';
-import AddRecipe from './routes/RecipeForm';
-import Login from './routes/Login';
+import Header from './Header';
+import Footer from './Footer';
+import Home from './Home';
+import AddRecipe from './RecipeForm';
+import Login from './Login';
+import { firebase } from '../config';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={props =>
+    render={(props) =>
       localStorage.getItem('user') ? (
         <Component {...props} />
       ) : (
@@ -43,7 +40,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    firebase.auth.onAuthStateChanged(user => {
+    firebase.auth.onAuthStateChanged((user) => {
       if (user) {
         console.info(user.email);
         this.setState({ authUser: user });
@@ -62,11 +59,11 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
-            <PrivateRoute exact path="/add-recipe" component={AddRecipe} />
             <Route exact path="/login" component={Login} />
+            <PrivateRoute exact path="/add-recipe" component={AddRecipe} />
           </Switch>
         </Router>
-        <Footer categories={categories} />
+        <Footer />
       </div>
     );
   }

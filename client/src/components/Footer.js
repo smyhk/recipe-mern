@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Paper, Tab, Tabs} from '@material-ui/core';
 
 class Footer extends Component {
   constructor(props) {
@@ -8,21 +7,10 @@ class Footer extends Component {
   }
 
   render() {
-    const { categories } = this.props;
     return (
-      <Paper>
-        <Tabs
-          value={0}
-          indicatorColor="primary"
-          textColor="primary"
-          centered
-        >
-          <Tab label="All" /> 
-          {categories.map(c =>
-            <Tab key={c} label={c} />
-          )}
-        </Tabs>
-      </Paper>
+      <div>
+        <h4>I am the footer for now</h4>
+      </div>
     );
   }
 }

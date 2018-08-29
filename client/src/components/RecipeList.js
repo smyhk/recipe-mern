@@ -3,7 +3,7 @@ import { graphql } from 'react-apollo'; // for binding to component
 import { getRecipesQuery } from '../queries/queries';
 
 // components
-import RightPane from './RightPane';
+import RecipeDetails from './RecipeDetails';
 
 class RecipeList extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class RecipeList extends Component {
     if (data.loading) {
       return <div>Loading recipes...</div>;
     } else {
-      return data.recipes.map(recipe => {
+      return data.recipes.map((recipe) => {
         return (
           <li
             className="list-group-item"
@@ -36,7 +36,7 @@ class RecipeList extends Component {
     return (
       <div className="container">
         <ul className="list-group">{this.displayRecipes()}</ul>
-        <RightPane recipeId={this.state.selected} />
+        <RecipeDetails recipeId={this.state.selected} />
       </div>
     );
   }
