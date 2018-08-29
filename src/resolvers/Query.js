@@ -1,11 +1,7 @@
-const Recipe = require('../models/Recipe');
+import Recipe from '../models/Recipe';
 
-const info = () => "The API for the recipe app";
+const info = () => 'The API for the recipe app';
 const recipes = () => Recipe.find();
 const recipe = (parent, args) => Recipe.findById(args.id);
 
-export {
-  info,
-  recipe,
-  recipes
-};
+export default { info, recipe, recipes };

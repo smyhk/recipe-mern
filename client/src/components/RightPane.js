@@ -1,17 +1,13 @@
-import React, { Component } from 'react';
-import { Paper } from '@material-ui/core';
+import React from 'react';
+//import { Paper } from '@material-ui/core';
 
 import RecipeDetails from './RecipeDetails';
 
-class RightPane extends Component {
-  render() {
-    const { styles } = this.props;
-    return (
-      <Paper style={styles.Paper}>
-        <RecipeDetails recipeId={this.props.recipeId} />
-      </Paper>
-    );
-  }
+const RightPane = ({ recipeId }) => {
+  //const { styles } = this.props;
+  return (
+    <RecipeDetails recipeId={recipeId} />
+  );
 }
 
 export default RightPane;

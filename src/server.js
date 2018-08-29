@@ -1,8 +1,8 @@
-const { GraphQLServer } = require('graphql-yoga');
-const mongoose = require('mongoose');
-const cors = require('cors');
+import { GraphQLServer } from 'graphql-yoga';
+import mongoose from 'mongoose';
+import cors from 'cors';
 
-const Query = require('./resolvers/Query');
+import Query from './resolvers/Query';
 
 const resolvers = {
   Query

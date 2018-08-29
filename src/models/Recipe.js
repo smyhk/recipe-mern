@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // define Recipe model
 const Recipe = mongoose.model('Recipe', {
@@ -10,4 +10,4 @@ const Recipe = mongoose.model('Recipe', {
   chefId: String
 });
 
-module.exports = Recipe;
+export default Recipe;
