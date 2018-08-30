@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import '../static/css/style.css';
 
-import background1 from '../static/img/background1.jpg';
-import background2 from '../static/img/background2.jpg';
-import background3 from '../static/img/background3.jpg';
-
 // components
 //import RecipeList from '../components/RecipeList';
 
@@ -40,7 +36,10 @@ class Home extends Component {
             </div>
           </div>
           <div className="parallax">
-            <img src={background1} alt="Unsplashed background img 1" />
+            <img
+              src="/static/img/background1.jpg"
+              alt="Unsplashed background img 1"
+            />
           </div>
         </div>
 
@@ -111,7 +110,10 @@ class Home extends Component {
             </div>
           </div>
           <div className="parallax">
-            <img src={background2} alt="Unsplashed background img 2" />
+            <img
+              src="/static/img/background2.jpg"
+              alt="Unsplashed background img 2"
+            />
           </div>
         </div>
 
@@ -153,7 +155,10 @@ class Home extends Component {
             </div>
           </div>
           <div className="parallax">
-            <img src={background3} alt="Unsplashed background img 3" />
+            <img
+              src="/static/img/background3.jpg"
+              alt="Unsplashed background img 3"
+            />
           </div>
         </div>
       </div>
