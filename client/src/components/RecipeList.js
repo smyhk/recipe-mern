@@ -20,7 +20,7 @@ class RecipeList extends Component {
       return data.recipes.map((recipe) => {
         return (
           <li
-            className="list-group-item"
+            className="collection-item"
             key={recipe.id}
             onClick={() => {
               this.setState({ selected: recipe.id });
@@ -35,7 +35,7 @@ class RecipeList extends Component {
   render() {
     return (
       <div className="container">
-        <ul className="list-group">{this.displayRecipes()}</ul>
+        <ul className="collection">{this.displayRecipes()}</ul>
         <RecipeDetails recipeId={this.state.selected} />
       </div>
     );

@@ -12,33 +12,33 @@ class Login extends Component {
     };
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
 
-  login = e => {
+  login = (e) => {
     const { history } = this.props;
     e.preventDefault();
     auth
       .loginWithEmailAndPassword(this.state.email, this.state.password)
-      .then(authUser => {
+      .then((authUser) => {
         history.push('/');
       })
-      .catch(error => {
+      .catch((error) => {
         this.setState({ error: error });
       });
   };
 
-  signup = e => {
+  signup = (e) => {
     const { history } = this.props;
     e.preventDefault();
     auth
       .signupWithEmailAndPassword(this.state.email, this.state.password)
-      .then(authUser => {
+      .then((authUser) => {
         history.push('/');
       })
-      .catch(error => {
+      .catch((error) => {
         this.setState({ error: error });
       });
   };

@@ -8,11 +8,11 @@ class RecipeDetails extends Component {
     if (recipe) {
       return (
         <div>
-          <h2>
+          <h3>
             {recipe.name}
             {' by: '}
             {/* {recipe.chef.username} */}
-          </h2>
+          </h3>
           <p>{recipe.ingredients}</p>
           <p>{recipe.directions}</p>
           <p>
@@ -45,7 +45,7 @@ class RecipeDetails extends Component {
 }
 
 export default graphql(getRecipeQuery, {
-  options: props => {
+  options: (props) => {
     return {
       variables: {
         id: props.recipeId

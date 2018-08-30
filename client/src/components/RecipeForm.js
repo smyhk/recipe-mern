@@ -53,7 +53,7 @@ class AddRecipe extends Component {
 
   render() {
     return (
-      <div className="col-md-6">
+      <div className="container">
         <h2>Add a recipe to the database</h2>
         <form id="add-recipe" onSubmit={this.sumbitForm.bind(this)}>
           <div className="form-group">
@@ -61,7 +61,7 @@ class AddRecipe extends Component {
             <input
               className="form-control"
               type="text"
-              onChange={e => this.setState({ name: e.target.value })}
+              onChange={(e) => this.setState({ name: e.target.value })}
             />
           </div>
 
@@ -70,7 +70,7 @@ class AddRecipe extends Component {
             <textarea
               className="form-control"
               type="text"
-              onChange={e => this.setState({ ingredients: e.target.value })}
+              onChange={(e) => this.setState({ ingredients: e.target.value })}
             />
           </div>
 
@@ -79,7 +79,7 @@ class AddRecipe extends Component {
             <textarea
               className="form-control"
               type="text"
-              onChange={e => this.setState({ directions: e.target.value })}
+              onChange={(e) => this.setState({ directions: e.target.value })}
             />
           </div>
 
@@ -89,7 +89,7 @@ class AddRecipe extends Component {
               className="form-control"
               type="text"
               placeholder="minutes..."
-              onChange={e => this.setState({ prepTime: e.target.value })}
+              onChange={(e) => this.setState({ prepTime: e.target.value })}
             />
           </div>
 
@@ -99,7 +99,7 @@ class AddRecipe extends Component {
               className="form-control"
               type="text"
               placeholder="minutes..."
-              onChange={e => this.setState({ cookTime: e.target.value })}
+              onChange={(e) => this.setState({ cookTime: e.target.value })}
             />
           </div>
 

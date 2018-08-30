@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { firebase } from '../config';
 
 // components
 import Header from './Header';
@@ -12,7 +8,6 @@ import Footer from './Footer';
 import Home from './Home';
 import AddRecipe from './RecipeForm';
 import Login from './Login';
-import { firebase } from '../config';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -54,17 +49,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <Header authUser={this.state.authUser} />
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
-            <PrivateRoute exact path="/add-recipe" component={AddRecipe} />
-          </Switch>
-        </Router>
-        <Footer />
-      </div>
+      <Router>
+        <div className="App">
+          <Header authUser={this.state.authUser} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <PrivateRoute exact path="/add-recipe" component={AddRecipe} />
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }

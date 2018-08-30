@@ -56,8 +56,4 @@ const getRecipeQuery = gql`
   }
 `;
 
-export {
-  getRecipesQuery,
-  addRecipeMutation,
-  getRecipeQuery
-};
+export { getRecipesQuery, addRecipeMutation, getRecipeQuery };
