@@ -22,7 +22,9 @@
     -->
 
   <!-- Compiled and minified CSS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <link href="src/static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 
   <title>Brandi's Recipes</title>
 </head>
@@ -44,7 +46,14 @@
     -->
 
   <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.sidenav').sidenav();
+      $('.parallax').parallax();
+    });
+  </script>
 </body>
 
 </html>
