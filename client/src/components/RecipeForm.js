@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { graphql, compose } from 'react-apollo'; // for binding to component
 import {
-  //getChefsQuery,
-  addRecipeMutation,
-  getRecipesQuery
+  // getChefsQuery,
+  addRecipeMutation
+  // getRecipesQuery
 } from '../queries/queries';
 
 class AddRecipe extends Component {
@@ -33,7 +33,7 @@ class AddRecipe extends Component {
   //   }
   // }
 
-  sumbitForm(e) {
+  sumbitForm = (e) => {
     e.preventDefault();
     this.props.addRecipeMutation({
       variables: {
@@ -43,19 +43,19 @@ class AddRecipe extends Component {
         prepTime: this.state.prepTime,
         cookTime: this.state.cookTime,
         chefId: this.state.chefId
-      },
-      refetchQueries: [{ query: getRecipesQuery }]
+      }
+      // refetchQueries: [{ query: getRecipesQuery }]
     });
     // clear form after submit
     var frm = document.getElementById('add-recipe');
     frm.reset();
-  }
+  };
 
   render() {
     return (
       <div className="container">
         <h2>Add a recipe to the database</h2>
-        <form id="add-recipe" onSubmit={this.sumbitForm.bind(this)}>
+        <form id="add-recipe" onSubmit={this.sumbitForm}>
           <div className="form-group">
             <label>Recipe name:</label>
             <input
