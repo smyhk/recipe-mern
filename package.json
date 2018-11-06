@@ -32,11 +32,11 @@
     "babel-eslint": "^9.0.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
-    "cors": "^2.8.4",
-    "graphql-yoga": "^1.16.2",
-    "mongoose": "^5.2.10"
+    "cors": "^2.8.5",
+    "graphql-yoga": "^1.16.7",
+    "mongoose": "^5.3.9"
   },
   "devDependencies": {
-    "eslint": "^5.4.0"
+    "eslint": "^5.8.0"
   }
 }
